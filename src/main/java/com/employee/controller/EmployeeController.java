@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.employee.entity.book.Book;
 import com.employee.model.EmployeeRequest;
 import com.employee.model.EmployeeResponse;
 import com.employee.service.EmployeeService;
@@ -24,6 +25,12 @@ public class EmployeeController {
 		EmployeeResponse response = employeeService.saveEmployee(employeeRequest);
 
 		return new ResponseEntity<>(response, HttpStatus.CREATED);
+
+	}
+
+	@PostMapping("/book")
+	Book createBook(@RequestBody Book book) {
+		return employeeService.createBook(book);
 
 	}
 }
